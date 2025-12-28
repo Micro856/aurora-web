@@ -13,3 +13,6 @@ pnpm run dev # start the development webserver
 
 Submit changes by creating a PR. 
 Every contribution is welcome!
+
+## Help translating 
+To translate the website, please use the english file as a template and replace the values in that JSON file with your translation.

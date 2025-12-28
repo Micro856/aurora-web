@@ -1,3 +1,5 @@
+"use client";
+
 import {
   ArrowUpRight,
   CloudDownload,
@@ -40,7 +42,7 @@ export default function DownloadAurora({
         {/* Header */}
         <div className="text-center">
           <h1 className="bg-gradient-to-r from-aurora-blue to-aurora-lightorange bg-clip-text text-4xl font-bold text-transparent lg:text-7xl py-2">
-            Download Aurora
+            {t("title")}
           </h1>
         </div>
 
@@ -55,14 +57,13 @@ export default function DownloadAurora({
               <div className="flex items-center gap-4">
                 <Cpu size={48} className="text-aurora-blue flex-shrink-0" />
                 <h2 className="bg-gradient-to-r from-aurora-blue to-aurora-darkblue bg-clip-text text-3xl font-semibold text-transparent">
-                  Hardware Configuration & Download
+                  {t("hardware-config")}
                 </h2>
               </div>
 
               <div className="space-y-6">
                 <p className="text-xl leading-relaxed">
-                  Select your primary GPU to get the edition with preinstalled drivers
-                  optimized for your hardware.
+                  {t("gpu-description")}
                 </p>
 
                 <div className="space-y-4">
@@ -81,9 +82,9 @@ export default function DownloadAurora({
                       />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="mesa">Intel / AMD</SelectItem>
+                      <SelectItem value="mesa">{t("intel-amd")}</SelectItem>
                       <SelectItem value="nvidia">
-                        Nvidia (RTX-Series/GTX 16xx)
+                        {t("nvidia")}
                       </SelectItem>
                     </SelectContent>
                   </Select>
@@ -95,24 +96,24 @@ export default function DownloadAurora({
             <div className="rounded-2xl bg-aurora-blue/5 border border-aurora-blue/20 p-6 space-y-4">
               <div className="flex items-center gap-3">
                 <Info className="h-5 w-5 text-aurora-blue flex-shrink-0" />
-                <h4 className="text-lg font-semibold text-aurora-blue">Installation Guide</h4>
+                <h4 className="text-lg font-semibold text-aurora-blue">{t("installation-guide")}</h4>
               </div>
 
               <div className="space-y-3 text-lg">
                 <p className="text-zinc-200">
-                  We recommend using{" "}
+                  {t("recommend-using")}{" "}
                   <a
                     className="inline-flex items-center gap-1 font-semibold text-aurora-lightorange underline underline-offset-2 transition-colors hover:text-aurora-orangina"
                     href="https://fedoraproject.org/workstation/download"
                   >
-                    Fedora Image Writer <ArrowUpRight className="h-4 w-4" />
+                    {t("fedora-image-writer")} <ArrowUpRight className="h-4 w-4" />
                   </a>{" "}
-                  to create your installation USB drive.
+                  {t("create-usb")}
                 </p>
 
                 <div className="rounded-xl bg-blue-500/10 border border-blue-500/20 p-3">
                   <p className="text-blue-200 text-sm">
-                    <span className="font-medium">Note:</span> Ventoy is not supported with our ISO files.
+                    <span className="font-medium">{t("note")}</span> {t("ventoy-not-supported")}
                   </p>
                 </div>
               </div>
@@ -123,10 +124,10 @@ export default function DownloadAurora({
               <div className="space-y-6 border-t border-zinc-700/50 pt-8">
                 <div className="text-center">
                   <h3 className="bg-gradient-to-r from-aurora-darkblue to-aurora-purple bg-clip-text text-2xl font-bold text-transparent lg:text-3xl">
-                    Ready to Download
+                    {t("ready-to-download")}
                   </h3>
                   <p className="mt-2 text-lg text-zinc-300">
-                    Your personalized Aurora image: <code className="text-aurora-blue font-mono">{imageName}</code>
+                    {t("personalized-image")} <code className="text-aurora-blue font-mono">{imageName}</code>
                   </p>
                 </div>
 
@@ -134,26 +135,26 @@ export default function DownloadAurora({
 
                 <div className="grid gap-6 lg:grid-cols-2">
                   <div className="rounded-2xl bg-zinc-900/30 border border-zinc-700/50 p-6 space-y-3">
-                    <h4 className="font-semibold text-aurora-blue text-lg">Developer Mode</h4>
+                    <h4 className="font-semibold text-aurora-blue text-lg">{t("developer-mode")}</h4>
                     <p className="text-sm text-zinc-300">
-                      Run{" "}
+                      {t("run")}{" "}
                       <code className="rounded bg-zinc-800 px-2 py-1 text-aurora-blue font-mono">
                         ujust devmode
                       </code>{" "}
-                      after installation.{" "}
+                      {t("run-after-install")}{" "}
                       <a
                         href="https://docs.getaurora.dev/dx/aurora-dx-intro"
                         className="text-aurora-blue underline underline-offset-2 hover:text-aurora-lightorange"
                       >
-                        Learn more
+                        {t("learn-more")}
                       </a>
                     </p>
                   </div>
 
                   <div className="rounded-2xl bg-zinc-900/30 border border-zinc-700/50 p-6 space-y-3">
-                    <h4 className="font-semibold text-aurora-orangina text-lg">Rebasing</h4>
+                    <h4 className="font-semibold text-aurora-orangina text-lg">{t("rebasing")}</h4>
                     <p className="text-sm text-zinc-300">
-                      Your image name will be{" "}
+                      {t("image-name-will-be")}{" "}
                       <code className="rounded bg-zinc-800 px-2 py-1 text-aurora-orangina font-mono">
                         {imageName.replace("-stable", ":stable")}
                       </code>
@@ -165,7 +166,7 @@ export default function DownloadAurora({
                   <div className="flex items-center gap-3">
                     <Package className="h-5 w-5 text-aurora-lightorange flex-shrink-0" />
                     <p className="text-sm text-zinc-300">
-                      <span className="font-semibold text-white">Slow download?</span> Check out our friends at{" "}
+                      <span className="font-semibold text-white">{t("slow-download")}</span> {t("check-friends")}{" "}
                       <a
                         className="inline-flex items-center gap-1 font-semibold text-aurora-lightorange underline underline-offset-2 transition-colors hover:text-aurora-orangina"
                         href="https://fosstorrents.com/distributions/aurora/"
@@ -185,10 +186,10 @@ export default function DownloadAurora({
                   <Monitor className="h-12 w-12 text-zinc-400" />
                   <div>
                     <h3 className="text-xl font-semibold text-zinc-300 mb-2">
-                      Select Hardware Configuration
+                      {t("select-hardware-config")}
                     </h3>
                     <p className="text-lg text-zinc-400">
-                      Choose your GPU above to continue with the download
+                      {t("choose-gpu")}
                     </p>
                   </div>
                 </div>
@@ -210,7 +211,7 @@ function DownloadButtons({
   isHelium: boolean;
   isx86?: boolean;
 }) {
-  const downloadLink: string = `https://dl.getaurora.dev/${imageName}-webui-x86_64.iso`; 
+  const downloadLink: string = `https://dl.getaurora.dev/${imageName}-webui-x86_64.iso`;
   const checksumLink: string = `https://dl.getaurora.dev/${imageName}-webui-x86_64.iso-CHECKSUM`;
   const t = useTranslations("Download-Component");
 

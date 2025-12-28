@@ -6,6 +6,7 @@ import { DownloadIcon, MenuIcon } from "lucide-react";
 import DownloadBtn from "@/components/download-btn";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
+import LanguageSelector from "@/components/LanguageSelector";
 
 const Navbar = ({
   introRef,
@@ -81,9 +82,10 @@ const Navbar = ({
           </div>
           <div
             className={
-              "flex max-h-fit flex-row items-center justify-center text-lg"
+              "flex max-h-fit flex-row items-center justify-center gap-2 text-lg"
             }
           >
+            <LanguageSelector />
             <DownloadBtn
               onClick={() => {
                 downloadRef.current.scrollIntoView({
@@ -123,7 +125,8 @@ const Navbar = ({
               className={`${isTop ? "block" : "hidden"}`}
             />
           </div>
-          <div className={"flex flex-row gap-3"}>
+          <div className={"flex flex-row gap-3 items-center"}>
+            <LanguageSelector />
             <button
               className="block cursor-pointer rounded border border-solid border-transparent bg-transparent px-3 py-1 text-xl leading-none text-white outline-none focus:outline-none lg:hidden"
               type="button"
