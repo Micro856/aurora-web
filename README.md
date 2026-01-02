@@ -1,7 +1,6 @@
 # Aurora Web
 
-The official Aurora website, built with Next.js 15, React 19, Tailwind CSS, and [shadcn/ui](https://ui.shadcn.com/) components.
-
+The official Aurora website, built with NextJS 16 and React 19, using TailwindCSS and shadcn/ui components.
 ## Getting Started
 
 ```bash
