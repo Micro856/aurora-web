@@ -11,15 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-const locales = [
-  { code: "en", label: "English" },
-  { code: "de", label: "Deutsch" },
-  { code: "fr", label: "Français"},
-  { code: "pt-PT", label: "Português"},
-] as const;
-
-type LocaleCode = (typeof locales)[number]["code"];
+import { languages, type Locale } from "@/i18n/config";
 
 export default function LanguageSelector() {
   const locale = useLocale();
@@ -29,7 +21,7 @@ export default function LanguageSelector() {
 
   const handleLocaleChange = (newLocale: string) => {
     startTransition(() => {
-      router.replace({ pathname }, { locale: newLocale as LocaleCode });
+      router.replace({ pathname }, { locale: newLocale as Locale });
     });
   };
 
@@ -40,13 +32,13 @@ export default function LanguageSelector() {
         <SelectValue />
       </SelectTrigger>
       <SelectContent className="border-zinc-700 bg-zinc-900/95 backdrop-blur-xl">
-        {locales.map((loc) => (
+        {languages.map((lang) => (
           <SelectItem
-            key={loc.code}
-            value={loc.code}
+            key={lang.code}
+            value={lang.code}
             className="text-white focus:bg-white/10 focus:text-white"
           >
-            {loc.label}
+            {lang.nativeName}
           </SelectItem>
         ))}
       </SelectContent>

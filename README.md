@@ -1,18 +1,60 @@
 # Aurora Web
 
-This is the Aurora Website. It is written using NextJS 15 & React 19, Tailwind, Shadcn UI components
-and icons from [lucide.dev](https://lucide.dev). To start the project, please make sure that you have yarn installed and
-enabled.
-
-To bootup the project and start the development server:
+The official Aurora website, built with NextJS 16 and React 19, using TailwindCSS and shadcn/ui components.
+## Getting Started
 
 ```bash
-pnpm i # install dependencies
-pnpm run dev # start the development webserver
+pnpm i          # Install dependencies
+pnpm run dev    # Start development server at http://localhost:3000
 ```
 
-Submit changes by creating a PR. 
-Every contribution is welcome!
+## Contributing
 
-## Help translating 
-To add your language, please create a new file in the `locales` directory with the language code as the filename. For example, `locales/fr.json` for French. Then adjust the values in that JSON file with your translation. After you're done, add your language to the i18n/config.ts file and make a PR. Voila!
+Every contribution is welcome! Submit changes by creating a PR. Thank you for your contribution!
+
+### Adding a New Language
+
+Adding a new language is easy - you only need to touch **two files**:
+
+1. **Create a translation file** - Copy `messages/en.json` to `messages/{locale}.json`:
+   ```bash
+   cp messages/en.json messages/es.json  # Example: Spanish
+   ```
+
+2. **Register the language** - Add an entry to the `languages` array in `i18n/config.ts`:
+   ```typescript
+   export const languages: Language[] = [
+     { code: 'en', name: 'English', nativeName: 'English' },
+     { code: 'de', name: 'German', nativeName: 'Deutsch' },
+     { code: 'es', name: 'Spanish', nativeName: 'Español' },  // Add your language
+     // ...
+   ];
+   ```
+
+3. **Translate** - Edit your new `messages/{locale}.json` file with your translations.
+
+4. **Submit a PR** - That's it!
+
+#### Locale Code Format
+
+Use standard [BCP 47 language tags](https://en.wikipedia.org/wiki/IETF_language_tag):
+- Simple codes: `en`, `de`, `fr`, `es`
+- Regional variants: `pt-PT` (Portuguese - Portugal), `pt-BR` (Portuguese - Brazil)
+
+### Project Structure
+
+```
+aurora-web/
+├── app/[locale]/       # Internationalized pages
+├── components/         # React components
+├── i18n/
+│   ├── config.ts       # Language configuration (single source of truth)
+│   ├── routing.ts      # next-intl routing setup
+│   └── request.ts      # Server-side locale handling
+├── messages/           # Translation files
+│   ├── en.json         # English (reference)
+│   ├── de.json         # German
+│   ├── fr.json         # French
+│   └── pt-PT.json      # Portuguese (Portugal)
+└── middleware.ts       # Locale detection middleware
+```
