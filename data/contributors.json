@@ -22,8 +22,12 @@
       "role": "maintainer"
     },
     {
+      "github": "ledif",
+      "role": "maintainer"
+    },
+    {
       "github": "tulilirockz",
-      "role": "maintainer",
+      "role": "contributor",
       "sponsorLink": "https://github.com/sponsors/tulilirockz"
     },
     {
@@ -80,10 +84,6 @@
       "github": "KyleGospo",
       "role": "ublue",
       "sponsorLink": "https://github.com/sponsors/KyleGospo"
-    },
-    {
-      "github": "ledif",
-      "role": "maintainer"
     },
     {
       "github": "noelmiller",
