@@ -26,6 +26,7 @@ export const languages: Language[] = [
   { code: 'en', name: 'English', nativeName: 'English' },
   { code: 'de', name: 'German', nativeName: 'Deutsch' },
   { code: 'fr', name: 'French', nativeName: 'Français' },
+  { code: 'pl', name: 'Polish', nativeName: 'Polski' },
   { code: 'pt-PT', name: 'Portuguese (Portugal)', nativeName: 'Português (Portugal)' },
   { code: 'ru', name: 'Russian', nativeName: 'Русский' },
 ];
